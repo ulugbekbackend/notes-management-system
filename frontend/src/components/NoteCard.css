@@ -1,0 +1,218 @@
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 22px;
+}
+
+.note-card {
+  position: relative;
+  overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px 20px 22px;
+
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--med) var(--ease),
+              box-shadow var(--med) var(--ease),
+              border-color var(--med) var(--ease);
+
+  animation: fadeUp var(--med) var(--ease) both;
+}
+
+/* ---- Washi-tape strip: the soft, feminine, handmade touch ---- */
+.note-card::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 26px;
+  width: 54px;
+  height: 18px;
+  border-radius: 3px;
+  background: var(--accent-1);
+  opacity: 0.85;
+  transform: rotate(-4deg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform var(--med) var(--ease);
+}
+
+/* ---- Corner fold: signature detail, cycles through the accent palette ---- */
+.note-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 26px 26px 0;
+  border-color: transparent var(--accent-1) transparent transparent;
+  opacity: 0.9;
+  transition: border-width var(--fast) var(--ease);
+}
+
+.notes-grid .note-card:nth-child(5n+2)::before,
+.notes-grid .note-card:nth-child(5n+2)::after { background: var(--accent-2); border-color: transparent var(--accent-2) transparent transparent; }
+.notes-grid .note-card:nth-child(5n+3)::before,
+.notes-grid .note-card:nth-child(5n+3)::after { background: var(--accent-3); border-color: transparent var(--accent-3) transparent transparent; }
+.notes-grid .note-card:nth-child(5n+4)::before,
+.notes-grid .note-card:nth-child(5n+4)::after { background: var(--accent-4); border-color: transparent var(--accent-4) transparent transparent; }
+.notes-grid .note-card:nth-child(5n+5)::before,
+.notes-grid .note-card:nth-child(5n+5)::after { background: var(--accent-5); border-color: transparent var(--accent-5) transparent transparent; }
+
+.notes-grid .note-card:nth-child(odd):hover { transform: translateY(-6px) rotate(-0.6deg); }
+.notes-grid .note-card:nth-child(even):hover { transform: translateY(-6px) rotate(0.6deg); }
+
+.note-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--line-strong);
+}
+
+.note-card:hover::after {
+  border-width: 0 34px 34px 0;
+}
+
+.note-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.note-header h3 {
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.note-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.fav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  color: var(--ink-faint);
+  transition: color var(--fast) var(--ease), background var(--fast) var(--ease);
+}
+
+.fav-btn:hover {
+  background: rgba(245, 185, 66, 0.14);
+  color: var(--gold);
+}
+
+.fav-btn.is-fav {
+  color: var(--gold);
+}
+
+.fav-btn.is-fav:active svg,
+.fav-btn:active svg {
+  animation: popIn var(--med) var(--ease);
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  color: var(--ink-faint);
+  transition: color var(--fast) var(--ease), background var(--fast) var(--ease);
+}
+
+.menu-icon:hover {
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.note-menu {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 190px;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 6px;
+
+  animation: scaleIn var(--fast) var(--ease) both;
+  transform-origin: top right;
+}
+
+.note-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.87rem;
+  color: var(--ink);
+  text-align: left;
+  transition: background var(--fast) var(--ease);
+}
+
+.note-menu button:hover {
+  background: var(--bg-alt);
+}
+
+.note-menu button:last-child {
+  color: var(--danger);
+}
+
+.note-menu button:last-child:hover {
+  background: var(--danger-soft);
+}
+
+.note-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  margin-bottom: 18px;
+  min-height: 60px;
+}
+
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.note-footer span:first-child {
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+}
+
+.note-footer .tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-gradient-soft);
+  color: var(--violet-dark);
+}
