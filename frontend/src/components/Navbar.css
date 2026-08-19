@@ -1,0 +1,57 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  margin-bottom: 32px;
+  animation: fadeUp var(--med) var(--ease) both;
+}
+
+.navbar h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.navbar p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-icons svg {
+  width: 40px;
+  height: 40px;
+  padding: 11px;
+  border-radius: var(--radius-pill);
+
+  background: var(--surface);
+  color: var(--ink-soft);
+  box-shadow: var(--shadow-sm);
+
+  transition: transform var(--fast) var(--ease),
+              color var(--fast) var(--ease),
+              box-shadow var(--fast) var(--ease);
+}
+
+.navbar-icons svg:hover {
+  color: var(--rose);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-icons .profile {
+  background: var(--brand-gradient);
+  color: #fff;
+}
+
+.navbar-icons .profile:hover {
+  box-shadow: var(--shadow-glow);
+}

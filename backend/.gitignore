@@ -1,0 +1,26 @@
+# Environment
+.env
+venv/
+.venv/
+ENV/
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django database
+*.sqlite3
+db.sqlite3
+
+# Logs
+*.log
+
+# Virtual environment and build artifacts
+build/
+dist/
+*.egg-info/
+
+# Editor temp files
+*.swp
+*~

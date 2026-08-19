@@ -1,0 +1,71 @@
+/* =======================================================================
+   DESIGN TOKENS
+   45% professional · 30% modern & colorful · 25% soft feminine accents
+   ======================================================================= */
+
+:root {
+
+  /* ---- Ink & neutrals (professional backbone) ---- */
+  --ink: #241627;              /* near-black plum, for body text/headings */
+  --ink-soft: #7A6F87;         /* secondary text */
+  --ink-faint: #B2A7BE;        /* placeholders, timestamps */
+
+  --bg: #FBF7FC;               /* app background, soft blush-white */
+  --bg-alt: #F6EFF9;
+  --surface: #FFFFFF;          /* cards, modals */
+  --surface-tint: #FFF8FB;     /* faint pink card wash */
+  --line: #EFE1F0;             /* hairline borders */
+  --line-strong: #E3CFE8;
+
+  /* ---- Brand gradient (modern & colorful) ---- */
+  --violet: #8B5CF6;
+  --violet-dark: #6D28D9;
+  --rose: #EC4899;
+  --rose-soft: #FBCFE8;        /* soft feminine accent */
+  --blush: #FFD9EC;
+
+  --brand-gradient: linear-gradient(135deg, #EC4899 0%, #A855F7 55%, #6366F1 100%);
+  --brand-gradient-soft: linear-gradient(135deg, #FDE6F3 0%, #F1E6FE 100%);
+
+  /* ---- Accent palette (used sparingly, with intent) ---- */
+  --gold: #F5B942;             /* favorites / highlights */
+  --mint: #34D399;             /* archive / positive */
+  --sky: #38BDF8;              /* info */
+  --danger: #F43F5E;           /* soft rose-red, not harsh */
+  --danger-soft: #FEE2E5;
+
+  /* A small rotation of accents used for note "corner folds" so a grid of
+     notes doesn't read as monotone -- cycled by index, not meaning. */
+  --accent-1: #EC4899;
+  --accent-2: #8B5CF6;
+  --accent-3: #F5B942;
+  --accent-4: #34D399;
+  --accent-5: #38BDF8;
+
+  /* ---- Elevation ---- */
+  --shadow-sm: 0 2px 8px rgba(107, 41, 122, 0.06);
+  --shadow-md: 0 10px 30px rgba(107, 41, 122, 0.10);
+  --shadow-lg: 0 24px 60px rgba(107, 41, 122, 0.16);
+  --shadow-glow: 0 12px 28px rgba(236, 72, 153, 0.28);
+
+  /* ---- Shape ---- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fast: 160ms;
+  --med: 280ms;
+  --slow: 480ms;
+
+  /* ---- Type ---- */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Reserved for a future dark theme -- intentionally not activated yet
+     since the rest of the app (inputs, menus) isn't dark-mode aware. */
+}

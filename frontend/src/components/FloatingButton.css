@@ -1,0 +1,40 @@
+.floating-btn {
+  position: fixed;
+  bottom: 34px;
+  right: 34px;
+  z-index: 80;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-pill);
+
+  background: var(--brand-gradient);
+  color: #fff;
+  font-size: 1.3rem;
+
+  box-shadow: var(--shadow-glow);
+  animation: pulseRing 2.4s infinite;
+  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.floating-btn:hover {
+  transform: translateY(-3px) scale(1.06) rotate(90deg);
+  box-shadow: 0 16px 34px rgba(236, 72, 153, 0.4);
+}
+
+.floating-btn:active {
+  transform: scale(0.94);
+}
+
+@media (max-width: 768px) {
+  .floating-btn {
+    bottom: 22px;
+    right: 22px;
+    width: 54px;
+    height: 54px;
+  }
+}
